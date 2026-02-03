@@ -8,135 +8,122 @@
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    margin: 0;
-    height: 100vh;
-    font-family: 'Sarabun', sans-serif;
-    background: linear-gradient(180deg, #ffe6ef, #ffffff);
-  }
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:'Sarabun', sans-serif;
+  background:linear-gradient(180deg,#ffe6ef,#ffffff);
+}
 
-  /* overlay */
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(255,182,193,0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    animation: fadeIn 1s ease;
-  }
+/* overlay */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(255,182,193,.4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px;
+}
 
-  /* modal */
-  .modal {
-    background: #ffffff;
-    border-radius: 30px;
-    padding: 20px 60px;
-    width: 390px;
-    max-width: 100%;
-    text-align: center;
-    box-shadow: 0 20px 50px rgba(255,150,180,0.35);
-    animation: floatCard 3s ease-in-out infinite;
-  }
+/* modal */
+.modal{
+  width:100%;
+  max-width:420px;          /* ⭐ คุมขนาดสวย */
+  max-height:90vh;          /* ⭐ ไม่ล้นจอ */
+  background:#fff;
+  border-radius:28px;
+  padding:28px 22px 32px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(255,150,180,.35);
+  animation:floatCard 3s ease-in-out infinite;
+  overflow-y:auto;          /* ⭐ เลื่อนได้ถ้าจอเตี้ย */
+}
 
+/* image */
+.card-image{
+  width:72%;
+  max-width:260px;
+  margin:0 auto 18px;
+  animation:floatImage 3s ease-in-out infinite;
+}
 
-    .card-image {
-    width: 300px;
-    margin: 0 auto 18px;
-    animation: floatImage 3s ease-in-out infinite;
-  }
+.card-image img{
+  width:100%;
+  border-radius:18px;
+}
 
-  .card-image img {
-    width: 100%;
-    border-radius: 16px;
-  }
+/* text */
+.title{
+  font-size:18px;
+  font-weight:500;
+  color:#ff6fa5;
+  margin-bottom:6px;
+}
 
-  @keyframes floatImage {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
+.subtitle{
+  font-size:14px;
+  color:#777;
+  margin-bottom:22px;
+}
 
-  .title {
-    font-size: 18px;
-    font-weight: 500;
-    color: #ff6fa5;
-    margin-bottom: 8px;
-  }
+/* code */
+.code-box{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-bottom:22px;
+  flex-wrap:wrap;
+}
 
-  .subtitle {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 26px;
-  }
+.code-box input{
+  width:36px;
+  height:46px;
+  border-radius:12px;
+  border:2px solid #ffd1e1;
+  text-align:center;
+  font-size:18px;
+  outline:none;
+  transition:.3s;
+}
 
-  /* password boxes */
-  .code-box {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 26px;
-  }
+.code-box input:focus{
+  border-color:#ff6fa5;
+}
 
-  .code-box input {
-    width: 38px;
-    height: 48px;
-    border-radius: 12px;
-    border: 2px solid #ffd1e1;
-    text-align: center;
-    font-size: 18px;
-    outline: none;
-    transition: 0.3s;
-  }
+/* button */
+button{
+  background:#ff8fb3;
+  border:none;
+  border-radius:50px;
+  padding:12px 36px;
+  font-size:15px;
+  color:#fff;
+  cursor:pointer;
+  transition:.3s;
+}
 
-  .code-box input:focus {
-    border-color: #ff6fa5;
-  }
+button:hover{
+  background:#ff6fa5;
+  transform:scale(1.05);
+}
 
-  button {
-    background: #ff8fb3;
-    border: none;
-    border-radius: 50px;
-    padding: 14px 40px;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+.error{
+  margin-top:14px;
+  font-size:13px;
+  color:#ff4d6d;
+  display:none;
+}
 
-  button:hover {
-    background: #ff6fa5;
-    transform: scale(1.05);
-  }
-
-  .error {
-    margin-top: 14px;
-    font-size: 13px;
-    color: #ff4d6d;
-    display: none;
-  }
-
-  /* responsive */
-  @media (max-width: 600px) {
-    .modal {
-      padding: 28px 22px;
-      border-radius: 22px;
-    }
-    .code-box input {
-      width: 34px;
-      height: 44px;
-      font-size: 16px;
-    }
-  }
-
-  @keyframes floatCard {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+/* animations */
+@keyframes floatCard{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+@keyframes floatImage{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
 </style>
 </head>
 
@@ -145,10 +132,9 @@
 <div class="overlay">
   <div class="modal">
 
-        <div class="card-image">
+    <div class="card-image">
       <img src="images/unlock.png" alt="love card">
     </div>
-
 
     <div class="title">ใส่รหัสลับ</div>
     <div class="subtitle">วันครบรอบของเราคือวันไหนคะ</div>
@@ -174,28 +160,28 @@
 </div>
 
 <script>
-  const inputs = document.querySelectorAll('.code-box input');
+const inputs = document.querySelectorAll('.code-box input');
 
-  inputs.forEach((input, index) => {
-    input.addEventListener('input', () => {
-      if (input.value && index < inputs.length - 1) {
-        inputs[index + 1].focus();
-      }
-    });
-  });
-
-  function checkCode() {
-    let code = '';
-    inputs.forEach(i => code += i.value);
-
-    if (code === '29072546') {
-      location.href = 'love.html'; // หน้าเซอร์ไพรส์ถัดไป
-    } else {
-      document.getElementById('error').style.display = 'block';
-      inputs.forEach(i => i.value = '');
-      inputs[0].focus();
+inputs.forEach((input, index) => {
+  input.addEventListener('input', () => {
+    if(input.value && index < inputs.length - 1){
+      inputs[index + 1].focus();
     }
+  });
+});
+
+function checkCode(){
+  let code = '';
+  inputs.forEach(i => code += i.value);
+
+  if(code === '29072546'){
+    location.href = 'love.html';
+  }else{
+    document.getElementById('error').style.display = 'block';
+    inputs.forEach(i => i.value = '');
+    inputs[0].focus();
   }
+}
 </script>
 
 </body>
