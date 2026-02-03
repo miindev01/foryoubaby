@@ -161,6 +161,57 @@ body{
   from{opacity:0; transform:translateY(-8px);}
   to{opacity:1; transform:translateY(0);}
 }
+
+  .photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr); /* คอม = 3x2 */
+  gap:14px;
+}
+
+/* มือถือ */
+@media(max-width:768px){
+  .photo-grid{
+    grid-template-columns:repeat(2,1fr); /* มือถือ = 2x3 */
+  }
+}
+
+/* กล่องรูป */
+.photo-item{
+  position:relative;
+  width:100%;
+  aspect-ratio: 3 / 4;   /* ⭐ แนวตั้ง */
+  overflow:hidden;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(255,120,160,.25);
+}
+
+/* รูป */
+.photo-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;      /* ไม่ยืด ไม่เบี้ยว */
+  display:block;
+}
+
+/* overlay */
+.photo-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(255,105,180,.55),
+    rgba(255,105,180,.15),
+    transparent
+  );
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:14px;
+  color:#fff;
+  font-size:14px;
+  text-shadow:0 2px 6px rgba(0,0,0,.35);
+}
+
 </style>
 </head>
 
@@ -228,3 +279,4 @@ function toggleMonths(){
 
 </body>
 </html>
+
