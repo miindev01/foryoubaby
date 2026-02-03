@@ -69,24 +69,29 @@ body{
   justify-content:center;
   margin-bottom:22px;
 }
-
-.code-box{
-  display:flex;
-  gap:8px;
-  transform:scale(clamp(.75, 3vw, 1));
-  transform-origin:center;
+.code-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 26px;
 }
 
-.code-box input{
-  width:40px;
-  height:50px;
-  border-radius:14px;
-  border:2px solid #ffd1e1;
-  text-align:center;
-  font-size:18px;
-  outline:none;
-  transition:.25s;
+.code-box input {
+  flex: 1;
+  max-width: 40px;
+  min-width: 32px;
+  height: 48px;
+
+  border-radius: 12px;
+  border: 2px solid #ffd1e1;
+  text-align: center;
+  font-size: 18px;
+  outline: none;
+  transition: 0.3s;
 }
+
 
 .code-box input:focus{
   border-color:#ff6fa5;
@@ -245,3 +250,4 @@ function checkCode(){
 
 </body>
 </html>
+
